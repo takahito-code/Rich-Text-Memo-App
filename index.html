@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Rich Text Memo App</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Rich Text Memo</h1>
+
+    <aside>
+      <h2>Saved Memos</h2>
+      <input type="text" id="searchBox" placeholder="Search memos..." oninput="searchMemos(this.value)">
+      <ul id="memoList"></ul>
+    </aside>
+
+    <main>
+      <div class="toolbar">
+        <button onclick="formatText('bold')">B</button>
+        <button onclick="formatText('italic')">I</button>
+        <button onclick="formatText('underline')">U</button>
+        <button onclick="formatText('insertOrderedList')">OL</button>
+        <button onclick="formatText('insertUnorderedList')">UL</button>
+        <button id="toggleTheme">Toggle Theme</button>
+      </div>
+      <div id="editor" contenteditable="true"></div>
+      <button id="saveMemo">Save Memo</button>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

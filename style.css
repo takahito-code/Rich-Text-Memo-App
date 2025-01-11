@@ -1,0 +1,230 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #f0f4ff, #dff1f9);
+  }
+  
+  h1 {
+    color: #333;
+    margin: 20px 0;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* サイドバー */
+  aside {
+    width: 30%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+  }
+  
+  aside h2 {
+    margin: 0;
+    color: #555;
+    font-size: 1.2rem;
+  }
+  
+  #searchBox {
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #searchBox:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* メモリスト */
+  #memoList {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+  }
+  
+  #memoList li {
+    margin: 10px 0;
+    padding: 10px;
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #memoList li:hover {
+    background: #e8f0fe;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+  }
+  
+  #memoList li.selected {
+    background: #d0e6ff;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+  }
+  
+  /* 削除ボタン */
+  #memoList button {
+    font-size: 12px;
+    padding: 5px 10px;
+    background: #e57373;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #memoList button:hover {
+    background: #d32f2f;
+  }
+  
+  /* メインエリア */
+  main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .toolbar {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .toolbar button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .toolbar button:hover {
+    transform: scale(1.05);
+  }
+  
+  #editor {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-y: auto;
+    transition: border-color 0.3s ease;
+  }
+  
+  #editor:focus {
+    border-color: #007bff;
+  }
+  
+  /* 保存ボタン */
+  #saveMemo {
+    align-self: flex-end;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  #saveMemo:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* カラーパレット1 (デフォルト) */
+  .palette-1 button {
+    background-color: #ffc107;
+    color: #000;
+  }
+  
+  .palette-1 #searchBox:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+  }
+  
+  /* カラーパレット2 (緑) */
+  .palette-2 button {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .palette-2 #searchBox:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  /* カラーパレット3 (青) */
+  .palette-3 button {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .palette-3 #searchBox:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+  }
+  
+  /* カラーパレット4 (オレンジ) */
+  .palette-4 button {
+    background-color: #ff5722;
+    color: #fff;
+  }
+  
+  .palette-4 #searchBox:focus {
+    border-color: #ff5722;
+    box-shadow: 0 0 5px rgba(255, 87, 34, 0.5);
+  }
+  
+  /* レスポンシブ対応 */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    aside {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    main {
+      padding: 15px;
+    }
+  }
